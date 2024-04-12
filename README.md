@@ -15,6 +15,6 @@ implementation details is as follow:
 * `CompoundService` Compound related functions
 * `UniService` Uniswap related functions
 * `py` foloder is code for plotting figures with [matplot](https://matplotlib.org)\
-   awk is also used for csv data processing which is really small and cool!
+   awk is also used for csv data processing which is really neat and cool!
 
 
