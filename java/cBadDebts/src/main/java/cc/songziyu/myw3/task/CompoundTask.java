@@ -25,7 +25,7 @@ public class CompoundTask {
 //        compoundService.getAllTokenConfig();
 
         /* print account financial state on Compound V2, namely supplied and borrowed assets */
-        printAccountLiquidity();
+//        printAccountLiquidity();
 
         /* get current price oracle address */
 //        getPriceOracle();
@@ -34,22 +34,27 @@ public class CompoundTask {
 //        compoundService.getCuniTokenInfo();
 //        getUniswapAnchoredViewEvent();
 //        printAnchordPeriod();
-//        printAnchorRation();
+        printAnchorRation();
 //        printUSDCCollateralFactor();
     }
 
     private void printAccountLiquidity() {
-        //List<String> accounts = Arrays.asList( "0x6980a47beE930a4584B09Ee79eBe46484FbDBDD0", "0x5968ada261a84e19a6c85830e655647752585ed4");
-        List<String> accounts = Arrays.asList( "0x6980a47beE930a4584B09Ee79eBe46484FbDBDD0");
+        List<String> accounts = Arrays.asList( "0x6980a47beE930a4584B09Ee79eBe46484FbDBDD0",
+                "0x5968ada261a84e19a6c85830e655647752585ed4",
+                "0x49bC3ceC1fb7978746f742a4E485d0D601831cEa",
+                "0x2F99fb66Ea797E7fA2d07262402Ab38bd5e53B12",
+                "0x146444424F6a61fc8Cc05dF9225A88217aBB032c");
+//        List<String> accounts = Arrays.asList( "0x6980a47beE930a4584B09Ee79eBe46484FbDBDD0");
         for (String account : accounts) {
-            Long liquidity = compoundService.getAccountLiquidity(account);
+            log.info("------------------------------------------");
+            BigInteger liquidity = compoundService.getAccountLiquidity(account);
             if (liquidity == null) {
                 log.info("fail to get compound liquidity for account " + account);
             } else {
                 log.info("account " + account + " liqudity on compound finance is " + liquidity);
             }
             compoundService.printAllBorrowedAndSupplied(account);
-
+            log.info("------------------------------------------");
         }
     }
 

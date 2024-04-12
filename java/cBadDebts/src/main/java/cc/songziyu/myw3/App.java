@@ -38,8 +38,8 @@ public class App {
                 // 获取服务端信息， 目的是检验代码基本配置是否正确
 //                serverInfoTask.run();
 
-                uniPriceOracleTask.run();
-//                compoundBadDebtTask.run();
+//                uniPriceOracleTask.run();
+                compoundBadDebtTask.run();
 
             } catch (Exception e) {
                 log.error(e.getMessage(), e);

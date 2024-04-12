@@ -31,11 +31,6 @@ ax.set_ylabel('Price(USD)')
 ax.xaxis.set_major_formatter(DateFormatter('%H:%M'))
 ax.set_ylim(5, 13)
 
-data_x = [np.datetime64('2024-02-23T14:20'), np.datetime64('2024-02-23T14:21'),np.datetime64('2024-02-23T14:22'),np.datetime64('2024-02-23T14:23')]
-#ax.plot(data_x, [7.11, 7.33, 8.15, 9.34])  # Plot some data on the axes.
-#ax.plot(data_x, [7.12, 8.36, 9.10, 10.68])  # Plot some data on the axes.
-#ax.scatter(data_x, [1, 4, 2, 3], c='green')  # Plot some data on the axes.
-
 plotFromFile('data/chainLinkPrice.csv', ax, 'green', 'chainLink')
 plotFromFile('data/uniswapPrice_12.csv', ax, 'blue', 'uniswap period=12 seconds')
 plotFromFile('data/uniswapPrice_900.csv', ax, 'orange', 'uniswap period=15 minutes')

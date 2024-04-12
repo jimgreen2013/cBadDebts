@@ -337,7 +337,7 @@ public class CompoundService {
         return lowerBoundAnchorRatio.longValue();
     }
 
-    public Long getAccountLiquidity(String account) {
+    public BigInteger getAccountLiquidity(String account) {
         Function function = new Function("getAccountLiquidity", Arrays.asList(new Address(account)),
                 Arrays.asList(new TypeReference<Uint>() {  // error
                 }, new TypeReference<Uint>() {  // liquidity
@@ -354,10 +354,10 @@ public class CompoundService {
                 BigInteger shortfall = (BigInteger) rets.get(2).getValue();
                 if (liquidity.longValue() > 0) {
                     log.info("liqudity is grater than 0.");
-                    return liquidity.longValue();
+                    return liquidity;
                 } else {
                     log.info("shortfall");
-                    return shortfall.longValue();
+                    return shortfall;
                 }
             }
         } catch (ExecutionException | InterruptedException e) {
